@@ -1,0 +1,27 @@
+.osrs-agent { max-width: 980px; margin: 0 auto; }
+.osrs-label { display:block; margin: 12px 0 6px; font-weight: 600; }
+#osrsInstruction { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #ccc; }
+.osrs-actions { display:flex; gap: 10px; margin-top: 10px; }
+.osrs-actions button { padding: 10px 14px; border-radius: 10px; border: 0; cursor: pointer; }
+.osrs-status { margin-top: 12px; padding: 10px; border-radius: 10px; background: rgba(0,0,0,0.04); }
+.osrs-preview { margin-top: 16px; }
+.osrs-box { padding: 12px; border-radius: 10px; background: rgba(0,0,0,0.04); white-space: pre-wrap; }
+.osrs-file { margin-top: 12px; padding: 12px; border-radius: 12px; border: 1px solid rgba(0,0,0,0.12); }
+.osrs-file h4 { margin: 0 0 6px; }
+.osrs-snippet { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; font-size: 13px; white-space: pre; overflow:auto; padding: 10px; border-radius: 10px; background: rgba(0,0,0,0.05); }
+
+
+
+.osrs-manual { margin-top: 12px; }
+.osrs-toggle { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; opacity: 0.9; }
+.osrs-help { font-size: 12px; opacity: 0.85; margin: 8px 0; }
+#osrsManualJson {
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: inherit;
+}
