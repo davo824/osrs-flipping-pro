@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OSRS Flipping Dashboard</title>
+  <title>OSRS Flipping Pro — Live Flips</title>
 
   <!-- Link CSS file -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  
+   
   
   
   <!-- Controls: grouped into 3 tidy rows; IDs unchanged -->
@@ -19,7 +19,7 @@
     Cash (gp) <input id="cash" type="number" value="1000000" step="500000">
   </label>
   <label title="How many results/slots to show">
-    # items <input id="itemsCap" type="number" value="6" min="1" max="30">
+    #items <input id="itemsCap" type="number" value="6" min="1" max="30">
   </label>
   <label title="Sort the table by this metric">
     Sort
@@ -44,84 +44,3 @@
     </select>
   </label>
 </div>
-
-<div class="row" style="margin-bottom:6px">
-  <!-- Signals & Scope -->
-  <label title="Filter by signal quality">
-    Signal
-    <select id="sigSel">
-      <option value="any" selected>Any</option>
-      <option>BUY</option>
-      <option>HOLD</option>
-      <option>DODGE</option>
-    </select>
-  </label>
-  <label title="Use Live or Stable signal mode">
-    Signal mode
-    <select id="sigMode">
-      <option value="live">Live</option>
-      <option value="stable" selected>Stable</option>
-    </select>
-  </label>
-  <label title="Search scope (All items or only your pinned)">
-    Scope
-    <select id="scopeSel">
-      <option value="all">All</option>
-      <option value="pinned">Pinned</option>
-    </select>
-  </label>
-</div>
-
-<div class="row" style="margin-bottom:10px">
-  <!-- Constraints & Actions -->
-  <label title="How often to refresh data (minutes)">
-    Refresh rate (mins) <input id="freshMins" type="number" value="5" step="1">
-  </label>
-  <label title="Minimum traded volume in the last hour">
-    Min 1h vol <input id="minHrVol" type="number" value="100" step="100">
-  </label>
-  <label title="Minimum ROI % you’ll accept">
-    Min ROI % <input id="minRoi" type="number" value="0" step="0.5">
-  </label>
-  <label title="Cap the profit percentage per item">
-    Max %/item <input id="allocPct" type="number" value="20" step="1">
-  </label>
-  <label title="Volume window used for filters & display">
-    Volume
-    <select id="volWin">
-      <option value="10m">10m</option>
-      <option value="1h" selected>1h</option>
-      <option value="1d">1d est</option>
-    </select>
-  </label>
-
-  <button id="colsBtn" title="Show/hide table columns">Columns</button>
-  <button id="advBtn"  title="Open advanced filters">Filters</button>
-  <button id="refresh" title="Refresh data now">Refresh</button>
-</div>
-
-    <div class="table-wrap"><table id="tbl"><thead><tr>
-<th>Pin</th><th>Item</th>
-      <th>
-  <div style="display:flex; flex-direction:column; align-items:center; gap: 4px;">
-    <span>Graph</span>
-    <div id="graph-range-controls" class="mini-chart-controls">
-      <button data-r="1h">1h</button>
-      <button data-r="1d" aria-pressed="true">1d</button>
-      <button data-r="1w">1w</button>
-      <button data-r="1m">1m</button>
-    </div>
-  </div>
-</th>
-      <th>Low</th><th>High</th><th>Margin</th><th>ROI %</th><th>Limit</th>      
-    <th>Traders</th>
-    <th>Volume</th>
-    <th>Conf</th><th>Signal</th><th class="col-why">Why</th><th>Buy @</th><th>Sell @</th><th>Qty</th><th>Profit@Qty</th><th>Limit Profit</th>
-  </tr></thead><tbody></tbody></table></div>
-  <small id="diag" class="m"></small>
-
-
-    <!-- Load JS at bottom for performance -->
-  <script src="script.js"></script>
-</body>
-</html>
