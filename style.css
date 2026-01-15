@@ -118,6 +118,28 @@ small.m {
 	align-items: flex-end
 }
 
+
+/* --- UX: cleaner top controls (scoped) --- */
+.controls {
+  padding: 10px 10px 0;
+  border-bottom: 1px solid #222743;
+  margin-bottom: 10px;
+}
+.controls .row { gap: 10px; }
+.controls label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 140px;
+}
+.controls input,
+.controls select {
+  width: 180px;
+  max-width: 180px;
+}
+.controls button { max-width: none; }
+
 .table-wrap {
 	overflow-x: auto;
 	overflow-y: visible
