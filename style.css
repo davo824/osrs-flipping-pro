@@ -1,1 +1,542 @@
+:root {
+	--bg: #0f1320;
+	--card: #171b2e;
+	--muted: #8ea2b9;
+	--text: #e8eef6;
+	--green: #27c93f;
+	--red: #ff5555;
+	--amber: #ffae00;
+	--focus: #5b8cff;
+	--stickyTop: 0px
+}
+
+
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font: 14px/1.45 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial
+}
+
+header {
+	position: sticky;
+	top: 0;
+	background: linear-gradient(180deg, rgba(15, 19, 32, .98), rgba(15, 19, 32, .86));
+	backdrop-filter: saturate(120%) blur(6px);
+	z-index: 999;
+	border-bottom: 1px solid #222743
+}
+
+.wrap {
+	width: 100%;
+}
+
+h1 {
+	margin: 0 0 4px;
+	font-weight: 800
+}
+
+p.sub {
+	margin: 0;
+	color: var(--muted)
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 12px;
+	margin-top: 12px
+}
+
+@media(min-width:1080px) {
+	.grid {
+		grid-template-columns: 2fr 1fr
+	}
+}
+
+.card {
+	background: var(--card);
+	border: 1px solid #232846;
+	border-radius: 12px
+}
+
+.pad {
+	padding: 12px
+}
+
+label {
+	font-size: 12px;
+	color: var(--muted)
+}
+
+input,
+select,
+button,
+textarea {
+	border-radius: 10px;
+	border: 1px solid #2a3154;
+	background: #0e1120;
+	color: var(--text);
+	padding: 9px 10px;
+	min-height: 36px;
+	max-width: 100px
+}
+
+
+button {
+	cursor: pointer;
+	background: linear-gradient(180deg, #1a2144, #121735);
+	border: 1px solid #2a3154;
+	color: #fff;
+	font-weight: 600
+}
+button.pin[data-pinned="1"],
+button[aria-pressed="true"]{ 
+  color: var(--green);
+	border-color: var(--green);}  /* pinned = green */
+
+small.m {
+	color: var(--muted)
+}
+
+.row {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	align-items: flex-end
+}
+
+.table-wrap {
+	overflow-x: auto;
+	overflow-y: visible
+}
+
+/* table */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	font-variant-numeric: tabular-nums
+}
+
+th,
+td {
+	padding: 10px 8px;
+	border-bottom: 1px solid #242a49;
+	text-align: right;
+	white-space: nowrap
+}
+
+thead th {
+	background: linear-gradient(180deg, #171b2e 70%, rgba(23, 27, 46, .92));
+	z-index: 10;
+	border-bottom: 1px solid #2a3154;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, .25)
+}
+
+tr:hover {
+	background: #121733
+}
+
+tbody tr:nth-child(2n) {
+	background: #141838
+}
+
+.pos {
+	color: var(--green);
+	font-weight: 600
+}
+
+.neg {
+	color: var(--red);
+	font-weight: 600
+}
+
+.warn {
+	color: var(--amber)
+}
+
+.muted {
+	color: var(--muted)
+}
+
+.badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	border-radius: 999px;
+	padding: 3px 8px;
+	font: 600 12px/1 system-ui;
+	border: 1px solid #2a3154
+}
+
+.BUY {
+	color: #14f19e;
+	background: rgba(20, 241, 158, .12)
+}
+
+.HOLD {
+	color: #ffd479;
+	background: rgba(255, 174, 0, .12)
+}
+
+.DODGE {
+	color: #ff8a8a;
+	background: rgba(255, 85, 85, .12)
+}
+
+.filter-btn {
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #2a3154;
+	border-radius: 6px;
+	background: #0e1120;
+	color: #cfe3ff
+}
+
+.pop {
+	position: fixed;
+	z-index: 50;
+	background: #0e1120;
+	border: 1px solid #2a3154;
+	border-radius: 12px;
+	box-shadow: 0 10px 22px rgba(0, 0, 0, .35);
+	padding: 10px;
+	min-width: 260px;
+	max-height: calc(100vh - 40px);
+	overflow: auto
+}
+
+.pop h4 {
+	margin: 0 0 8px;
+	font-size: 13px;
+	color: #cfe3ff
+}
+
+.pop .row>* {
+	flex: 1
+}
+
+/* columns popup grid */
+.pop.cols .grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+	gap: 8px;
+	max-width: 650px
+}
+
+/* column hides */
+.hide-col-item th:nth-child(2),
+.hide-col-item td:nth-child(2) {
+	display: none
+}
+
+.hide-col-graph th:nth-child(3),
+.hide-col-graph td:nth-child(3) {
+	display: none
+}
+
+.hide-col-low th:nth-child(4),
+.hide-col-low td:nth-child(4) {
+	display: none
+}
+
+.hide-col-high th:nth-child(5),
+.hide-col-high td:nth-child(5) {
+	display: none
+}
+
+.hide-col-margin th:nth-child(6),
+.hide-col-margin td:nth-child(6) {
+	display: none
+}
+
+.hide-col-roi th:nth-child(7),
+.hide-col-roi td:nth-child(7) {
+	display: none
+}
+
+.hide-col-limit th:nth-child(8),
+.hide-col-limit td:nth-child(8) {
+	display: none
+}
+
+.hide-col-traders th:nth-child(9),
+.hide-col-traders td:nth-child(9) {
+	display: none
+}
+
+.hide-col-volume th:nth-child(10),
+.hide-col-volume td:nth-child(10) {
+	display: none
+}
+
+.hide-col-conf th:nth-child(11),
+.hide-col-conf td:nth-child(11) {
+	display: none
+}
+
+.hide-col-signal th:nth-child(12),
+.hide-col-signal td:nth-child(12) {
+	display: none
+}
+
+.hide-col-why th:nth-child(13),
+.hide-col-why td:nth-child(13) {
+	display: none
+}
+
+.hide-col-buy th:nth-child(14),
+.hide-col-buy td:nth-child(14) {
+	display: none
+}
+
+.hide-col-sell th:nth-child(15),
+.hide-col-sell td:nth-child(15) {
+	display: none
+}
+
+.hide-col-qty th:nth-child(16),
+.hide-col-qty td:nth-child(16) {
+	display: none
+}
+
+.hide-col-profit th:nth-child(17),
+.hide-col-profit td:nth-child(17) {
+	display: none
+}
+
+.hide-col-limitprofit th:nth-child(18),
+.hide-col-limitprofit td:nth-child(18) {
+	display: none
+}
+
+/* sticky first data column (Item) */
+th:nth-child(2),
+td:nth-child(2) {
+	position: sticky;
+	left: 0;
+	background: linear-gradient(90deg, #171b2e, rgba(23, 27, 46, .85));
+	z-index: 11;
+	text-align: left
+}
+
+/* sorting arrows */
+th.sortable {
+	cursor: pointer;
+	position: relative;
+	padding-right: 18px
+}
+
+th.sortable::after {
+	content: '▲';
+	position: absolute;
+	right: 6px;
+	top: 50%;
+	transform: translateY(-50%);
+	opacity: .3
+}
+
+th.sortable.sorted-asc::after {
+	content: '▲';
+	opacity: 1
+}
+
+th.sortable.sorted-desc::after {
+	content: '▼';
+	opacity: 1
+}
+
+/* --- Profit calculator accordion --- */
+.acc {
+	border: 1px solid #2a3154;
+	border-radius: 10px;
+	margin: 0 0 12px;
+	background: #111633
+}
+
+.acc h3 {
+	margin: 0;
+	font-size: 14px;
+	padding: 10px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between
+}
+
+.acc h3 .chev {
+	opacity: .7
+}
+
+.acc .content {
+	padding: 10px;
+	display: none
+}
+
+.acc.open .content {
+	display: block
+}
+
+.calc-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 8px;
+	margin-bottom: 8px
+}
+
+.calc-row input {
+	width: 100%
+}
+
+.calc-out {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 4px
+}
+
+.calc-out td {
+	padding: 6px 8px;
+	border-bottom: 1px solid #242a49
+}
+
+.calc-out td:nth-child(1) {
+	color: var(--muted);
+	text-align: left
+}
+
+/* modal for item chart */
+.modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(0, 0, 0, .55);
+	backdrop-filter: blur(2px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2000
+}
+
+.modal .box {
+	width: min(1100px, 96vw);
+	max-height: 90vh;
+	background: #0e1120;
+	border: 1px solid #2a3154;
+	border-radius: 12px;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column
+}
+
+.modal header {
+	position: sticky;
+	top: 0;
+	background: #0e1120;
+	border-bottom: 1px solid #2a3154;
+	z-index: 1
+}
+
+.modal .hdr {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 12px
+}
+
+.modal .body {
+	padding: 10px
+}
+
+#chart {
+	width: 100%;
+	height: 380px;
+	background: #0f1320;
+	border: 1px solid #232846;
+	border-radius: 8px
+}
+
+.tip {
+	position: absolute;
+	pointer-events: none;
+	background: #0e1120;
+	border: 1px solid #2a3154;
+	border-radius: 8px;
+	padding: 6px 8px;
+	font-size: 12px;
+	line-height: 1.2;
+	z-index: 2100;
+	display: none
+}
+
+.legend {
+	display: flex;
+	gap: 10px;
+	margin: 6px 0
+}
+
+.legend .sw {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border-radius: 2px;
+	margin-right: 4px
+}
+
+.sw.buy {
+	background: #2ecc71
+}
+
+.sw.sell {
+	background: #ff6b81
+}
+
+/* Styling for the new graph column cell */
+td.col-graph {
+  padding: 2px 4px !important;
+  width: 160px;
+}
+
+/* Container for the mini chart canvas and its controls */
+.mini-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Controls for switching chart range (1h, 1d, etc.) */
+.mini-chart-controls {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+}
+
+.mini-chart-controls button {
+  padding: 1px 4px;
+  min-height: unset;
+  height: 18px;
+  font-size: 10px;
+  border-radius: 4px;
+  background: #111633;
+  font-weight: normal;
+  border: 1px solid #2a3154;
+}
+
+.mini-chart-controls button[aria-pressed="true"] {
+  background: var(--focus);
+  color: white;
+  border-color: var(--focus);
+}
+
+/* The canvas element for the chart */
+.mini-chart-canvas {
+  width: 100%;
+  height: 45px;
+  border-radius: 4px;
+}
+
+.main-row > .x-row-inner > * { transition: flex-basis 200ms ease; }
 
