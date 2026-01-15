@@ -1,0 +1,42 @@
+<div class="osrs-agent">
+  <h2>OSRS Repo Agent</h2>
+
+  <label class="osrs-label">Instruction</label>
+  <textarea id="osrsInstruction" rows="5" placeholder="Describe the change you want..."></textarea>
+
+<div class="osrs-actions">
+  <button id="osrsDiagnostics" type="button">Run Diagnostics</button>
+  <button id="osrsPropose" type="button">Propose Plan</button>
+  <button id="osrsGenerate" type="button" disabled>Generate Files</button>
+  <button id="osrsCommit" type="button" disabled>Confirm & Push</button>
+</div>
+  
+  <div class="osrs-manual">
+  <label class="osrs-toggle">
+    <input type="checkbox" id="osrsManualToggle" />
+    Manual generate (paste ops JSON)
+  </label>
+
+  <div id="osrsManualPanel" style="display:none;">
+    <div class="osrs-help">
+      Paste JSON in the required format. Anchors must be unique (ops apply strictly).
+    </div>
+    <textarea id="osrsManualJson" rows="14" spellcheck="false"></textarea>
+  </div>
+</div>
+
+
+
+  <div id="osrsStatus" class="osrs-status"></div>
+
+  <div id="osrsPreview" class="osrs-preview" style="display:none;">
+    <h3>Heard Requirements</h3>
+    <div id="osrsHeard" class="osrs-box"></div>
+
+    <h3>Plan</h3>
+    <div id="osrsPlan" class="osrs-box"></div>
+
+    <h3>Proposed Changes</h3>
+    <div id="osrsChanges"></div>
+  </div>
+</div>
