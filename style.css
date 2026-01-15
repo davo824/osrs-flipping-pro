@@ -140,6 +140,25 @@ small.m {
 }
 .controls button { max-width: none; }
 
+.controls .basic-row { align-items: flex-end; }
+.controls .adv-panel { margin-top: 8px; }
+.controls .adv-panel > summary {
+  cursor: pointer;
+  user-select: none;
+  font-size: 13px;
+  opacity: 0.9;
+  padding: 8px 0;
+}
+.controls .adv-panel[open] > summary { opacity: 1; }
+.controls .adv-panel > summary::-webkit-details-marker { display: none; }
+.controls .adv-panel > summary::before {
+  content: '▸';
+  display: inline-block;
+  margin-right: 8px;
+  transform: translateY(-1px);
+}
+.controls .adv-panel[open] > summary::before { content: '▾'; }
+
 .table-wrap {
 	overflow-x: auto;
 	overflow-y: visible
