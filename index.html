@@ -16,8 +16,8 @@
 
 <div class="controls" aria-label="Flipping controls">
 
-<div class="row" style="margin-bottom:6px">
-  <!-- Primary -->
+<div class="row basic-row" style="margin-bottom:6px">
+  <!-- Primary (Basic) -->
   <label title="Total gp you have available to flip with">
     Cash (gp) <input id="cash" type="number" value="1000000" step="500000">
   </label>
@@ -46,63 +46,69 @@
       <option value="hm">High-margin</option>
     </select>
   </label>
-</div>
-
-<div class="row" style="margin-bottom:6px">
-  <!-- Signals & Scope -->
-  <label title="Filter by signal quality">
-    Signal
-    <select id="sigSel">
-      <option value="any" selected>Any</option>
-      <option>BUY</option>
-      <option>HOLD</option>
-      <option>DODGE</option>
-    </select>
-  </label>
-  <label title="Use Live or Stable signal mode">
-    Signal mode
-    <select id="sigMode">
-      <option value="live">Live</option>
-      <option value="stable" selected>Stable</option>
-    </select>
-  </label>
-  <label title="Search scope (All items or only your pinned)">
-    Scope
-    <select id="scopeSel">
-      <option value="all">All</option>
-      <option value="pinned">Pinned</option>
-    </select>
-  </label>
-</div>
-
-<div class="row" style="margin-bottom:10px">
-  <!-- Constraints & Actions -->
-  <label title="How often to refresh data (minutes)">
-    Refresh rate (mins) <input id="freshMins" type="number" value="5" step="1">
-  </label>
-  <label title="Minimum traded volume in the last hour">
-    Min 1h vol <input id="minHrVol" type="number" value="100" step="100">
-  </label>
-  <label title="Minimum ROI % you’ll accept">
-    Min ROI % <input id="minRoi" type="number" value="0" step="0.5">
-  </label>
-  <label title="Cap the profit percentage per item">
-    Max %/item <input id="allocPct" type="number" value="20" step="1">
-  </label>
-  <label title="Volume window used for filters & display">
-    Volume
-    <select id="volWin">
-      <option value="10m">10m</option>
-      <option value="1h" selected>1h</option>
-      <option value="1d">1d est</option>
-    </select>
-  </label>
 
   <button id="colsBtn" title="Show/hide table columns">Columns</button>
-  <button id="advBtn"  title="Open advanced filters">Filters</button>
-  <button id="refresh" title="Refresh data now">Refresh</button> <label title="Search items"><input id="searchInput" type="search" placeholder="Search items..."></label>
+  <button id="advBtn"  title="Open advanced filters">More</button>
+  <button id="refresh" title="Refresh data now">Refresh</button>
+  <label title="Search items">
+    <input id="searchInput" type="search" placeholder="Search items...">
+  </label>
 </div>
 
+<details class="adv-panel">
+  <summary title="Show or hide advanced controls">Advanced</summary>
+
+  <div class="row" style="margin-bottom:6px">
+    <!-- Signals & Scope (Advanced) -->
+    <label title="Filter by signal quality">
+      Signal
+      <select id="sigSel">
+        <option value="any" selected>Any</option>
+        <option>BUY</option>
+        <option>HOLD</option>
+        <option>DODGE</option>
+      </select>
+    </label>
+    <label title="Use Live or Stable signal mode">
+      Signal mode
+      <select id="sigMode">
+        <option value="live">Live</option>
+        <option value="stable" selected>Stable</option>
+      </select>
+    </label>
+    <label title="Search scope (All items or only your pinned)">
+      Scope
+      <select id="scopeSel">
+        <option value="all">All</option>
+        <option value="pinned">Pinned</option>
+      </select>
+    </label>
+  </div>
+
+  <div class="row" style="margin-bottom:10px">
+    <!-- Constraints (Advanced) -->
+    <label title="How often to refresh data (minutes)">
+      Refresh rate (mins) <input id="freshMins" type="number" value="5" step="1">
+    </label>
+    <label title="Minimum traded volume in the last hour">
+      Min 1h vol <input id="minHrVol" type="number" value="100" step="100">
+    </label>
+    <label title="Minimum ROI % you’ll accept">
+      Min ROI % <input id="minRoi" type="number" value="0" step="0.5">
+    </label>
+    <label title="Cap the profit percentage per item">
+      Max %/item <input id="allocPct" type="number" value="20" step="1">
+    </label>
+    <label title="Volume window used for filters & display">
+      Volume
+      <select id="volWin">
+        <option value="10m">10m</option>
+        <option value="1h" selected>1h</option>
+        <option value="1d">1d est</option>
+      </select>
+    </label>
+  </div>
+</details>
 
 </div>
 
