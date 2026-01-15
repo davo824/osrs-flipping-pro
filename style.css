@@ -71,7 +71,18 @@ label {
 }
 
 input,
-select,
+select,input#searchInput {
+  border-radius: 10px;
+  border: 1px solid #2a3154;
+  background: #0e1120;
+  color: var(--text);
+  padding: 9px 10px;
+  min-height: 36px;
+  max-width: 100px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
 button,
 textarea {
 	border-radius: 10px;
