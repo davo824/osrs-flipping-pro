@@ -8,6 +8,7 @@ const API = "https://prices.runescape.wiki/api/v1/osrs";
 const qs = s => document.querySelector(s);
 const qsa = s => Array.from(document.querySelectorAll(s));
 const els = {
+  searchInput: qs('#searchInput'),
   cash:   qs('#cash'),
   cap:    qs('#itemsCap'),
   minHr:  qs('#minHrVol'),
@@ -848,6 +849,48 @@ for(const r of rows.slice(0,MAX)){
   }
 }
 function rebuild(){ try { render(buildRows()); saveSignals(); } catch(e){ if(els.diag) els.diag.innerHTML='<b style="color:#ff8a8a">Render fail:</b> '+(e.message||e); } }
+// Debounce helper
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+// Filter rows by search term (case-insensitive substring match on item name)
+function filterBySearch(rows, term) {
+  if (!term) return rows;
+  const lowerTerm = term.toLowerCase();
+  return rows.filter(r => r.name.toLowerCase().includes(lowerTerm));
+}
+
+// Wrap original buildRows to add search filtering
+const originalBuildRows = buildRows;
+function buildRowsWithSearch() {
+  const rows = originalBuildRows();
+  if (!els.searchInput) return rows;
+  const term = els.searchInput.value.trim();
+  return filterBySearch(rows, term);
+}
+
+// Override rebuild to use new buildRowsWithSearch
+function rebuild() {
+  try {
+    render(buildRowsWithSearch());
+    saveSignals();
+  } catch (e) {
+    if (els.diag) els.diag.innerHTML = '<b style="color:#ff8a8a">Render fail:</b> ' + (e.message || e);
+  }
+}
+
+// Add event listener to search input with debounce
+if (els.searchInput) {
+  els.searchInput.addEventListener('input', debounce(() => {
+    rebuild();
+  }, 300));
+}
+
 
 // ---------- events (null-safe) ----------
 ['#cash','#itemsCap','#minHrVol','#minRoi','#freshMins','#allocPct','#sortSel','#modeSel','#filterMode','#sigSel','#signalSel','#sigMode','#signalMode','#scopeSel','#volWin','#volWindow']
